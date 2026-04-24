@@ -46,6 +46,6 @@ export async function senddoc(formData: FormData) {
   else{
     console.log("success")
   }
-
+  redirect("/dashboard/status");
     
 }

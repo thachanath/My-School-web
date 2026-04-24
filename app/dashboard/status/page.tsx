@@ -6,7 +6,6 @@ export default async function Home() {
   let data = await fetchdata()
   return (
     <div>
-      <h1>status page</h1>
         <AllStatus documents={data} />
     </div>
   )
