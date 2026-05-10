@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
+import lineMes from "./lineMes";
 
 export async function senddoc(formData: FormData) {
   const type = formData.get("type");
@@ -14,16 +15,6 @@ export async function senddoc(formData: FormData) {
   const purpose = formData.get("purpose");
   const parent = formData.get("parent");
 
-  console.log(
-    type,
-    student,
-    teacher,
-    date,
-    starttime,
-    endtime,
-    purpose,
-    parent,
-  );
 
   const cookiesStore = cookies();
   const supabase = await createClient();
@@ -46,6 +37,9 @@ export async function senddoc(formData: FormData) {
   else{
     console.log("success")
   }
+
+  await lineMes(`มีคำขอใหม่\n`+`ขออณุญาติ ${type}\n`+`นักเรียน: ${student}`)
+
   redirect("/dashboard/status");
     
 }
