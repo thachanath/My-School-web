@@ -38,7 +38,7 @@ export async function senddoc(formData: FormData) {
     console.log("success")
   }
 
-  await lineMes(`มีคำขอใหม่\n`+`ขออณุญาติ ${type}\n`+`นักเรียน: ${student}`)
+  await lineMes(`มีคำขอใหม่\n`+`ขออณุญาติ ${type}\n`+`นักเรียน: ${student}`+`วันที่: ${date}`)
 
   redirect("/dashboard/status");
     
